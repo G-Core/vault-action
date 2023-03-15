@@ -106,6 +106,10 @@ async function exportSecrets() {
                 command.issue('add-mask', line);
             }
         }
+
+        // escaping bash service characters
+        value = value.replace(/([$&`\\])/g, '\\$1');
+
         if (exportEnv) {
             core.exportVariable(request.envVarName, `${value}`);
         }
