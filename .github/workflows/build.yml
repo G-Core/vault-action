@@ -73,7 +73,6 @@ jobs:
 
   integrationEnterprise:
     runs-on: ubuntu-latest
-    needs: e2e
 
     steps:
     - uses: actions/checkout@v3
