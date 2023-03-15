@@ -108,7 +108,7 @@ async function exportSecrets() {
         }
 
         // escaping bash and shell service characters
-        value = value.replace(/([$&`\\])/g, '\\$1');
+        value = value.replace(/(['])/g, "'\\''$1");
 
         if (exportEnv) {
             core.exportVariable(request.envVarName, `${value}`);
